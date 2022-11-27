@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'multiselectfield',
     'django.contrib.humanize',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
