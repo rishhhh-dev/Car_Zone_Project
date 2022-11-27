@@ -8,7 +8,7 @@ def Car_view(request):
     cars = car_model.objects.order_by('-created_date')
     paginator = Paginator(cars,4)
     page = request.GET.get('page')
-    paged_cars = paginator.get_page('page')
+    paged_cars = paginator.get_page(page)
     model_search = car_model.objects.values_list('model', flat=True).distinct()
     city_search = car_model.objects.values_list('city', flat=True).distinct()
     year_search = car_model.objects.values_list('year', flat=True).distinct()
