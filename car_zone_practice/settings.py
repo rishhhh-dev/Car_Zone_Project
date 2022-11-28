@@ -87,8 +87,6 @@ WSGI_APPLICATION = 'car_zone_practice.wsgi.application'
 # }
 
 
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -146,3 +144,10 @@ STATIC_ROOT = os.path.join(BASE_DIR , 'static')
 #MEDIA SETTINGS
 MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
 MEDIA_URL = '/media/'
+
+#MESSAGES SECTION
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
