@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from contacts.models import Contact
 # Create your views here.
 
 
@@ -62,13 +63,17 @@ def Login(request):
 
 @login_required(login_url='login')
 def Dashboard(request):
-	return render(request,'accounts/dashboard.html')
+	user_enquiry = Contact.objects.order_by('-created_date')
+	data = {
+		'enquires' : user_enquiry,
+	}
+	return render(request,'accounts/dashboard.html',data)
 
 
 def Logout(request):
 	if request.method == 'POST':
 		auth.logout(request)
-		messages.success(request,"You are logged out successfully")
+		
 	
 	return redirect('home')
 
